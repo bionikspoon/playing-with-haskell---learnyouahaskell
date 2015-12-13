@@ -53,8 +53,10 @@ coordinates :: [(Int, Int)]
 coordinates = [(1,3), (4,3), (2,4),(5,3), (5,6), (3,1)]
 
 head' :: [a] -> a
-head' [] = error "Can't call head on an empty list"
-head' (x:_) = x
+head' xs = case xs of [] -> error "Can't call head on an empty list"
+                      (x:_) -> x
+-- head' [] = error "Can't call head on an empty list"
+-- head' (x:_) = x
 
 tell :: (Show a) => [a] -> String
 tell [] = "The list is empty"
