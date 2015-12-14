@@ -47,3 +47,13 @@ _ `elem'` [] = False
 a `elem'` (x:xs)
     | a == x = True
     | otherwise = a `elem'` xs
+
+quicksort :: (Ord a) => [a] -> [a]
+quicksort [] = []
+quicksort (x:xs) =
+    let smallerSorted = quicksort [a | a <- xs, a <= x]
+        biggerSorted = quicksort [a | a <- xs, a > x]
+    in smallerSorted ++ [x] ++ biggerSorted
+
+longList :: [Int]
+longList = [10,2,5,3,1,6,7,4,2,3,4,8,9]
