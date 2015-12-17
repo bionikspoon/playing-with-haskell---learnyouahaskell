@@ -10,9 +10,9 @@ altMaximum' :: (Ord a) => [a] -> a
 altMaximum' [] = error "maximum of empty list"
 altMaximum' [x] = x
 altMaximum' (x:xs)
-    | x > maxTail = x
-    | otherwise = maxTail
-    where maxTail = altMaximum' xs
+    | x > maxTail   = x
+    | otherwise     = maxTail
+    where maxTail   = altMaximum' xs
 
 maximum' :: (Ord a) => [a] -> a
 maximum' [] = error "maximum of empty list"
